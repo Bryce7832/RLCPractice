@@ -1,5 +1,7 @@
 package org.example;
 
+import org.checkerframework.checker.mustcall.qual.NotOwning;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,7 +22,7 @@ public class SocketWrapper {
         output.println(message);
     }
 
-    public Socket getSocket() {
+    public @NotOwning Socket  getSocket() {
         return socket;
     }
 
