@@ -10,8 +10,9 @@ public class Client {
 
     public void start(String serverIP, int serverPort) {
         SocketWrapper socket = null;
+        Socket s = null;
         try {
-            Socket s = new Socket(serverIP, serverPort);
+            s = new Socket(serverIP, serverPort);
             socket = new SocketWrapper(s);
             System.out.println("Connected to server: " + serverIP + ":" + serverPort);
 
@@ -29,7 +30,7 @@ public class Client {
             System.out.println("Error: " + e.getMessage());
         } finally {
             try {
-                if (socket != null) socket.close();
+                if (s != null) s.close();
             } catch (IOException e) {
                 System.out.println("Error closing socket: " + e.getMessage());
             }
